@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "H:\\Development\\VisualStudio\\SharpTools2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\TestProject1.csproj|h:\\development\\visualstudio\\sharptools2024\\testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\TestProject1.csproj|solutionrelative:testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\SharpTools2024.UnitTests.csproj|h:\\development\\visualstudio\\sharptools2024\\testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\SharpTools2024.UnitTests.csproj|solutionrelative:testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\SharpTools2024.UnitTests.csproj|h:\\development\\visualstudio\\sharptools2024\\testproject1\\sharptools2024.unittests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -22,34 +22,6 @@
           "Children": [
             {
               "$type": "Document",
-<<<<<<< Updated upstream
-=======
-              "DocumentIndex": 0,
-              "Title": "SizeOf.cs",
-              "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024\\SizeOf.cs",
-              "RelativeDocumentMoniker": "SharpTools2024\\SizeOf.cs",
-              "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024\\SizeOf.cs",
-              "RelativeToolTip": "SharpTools2024\\SizeOf.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T20:38:20.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024.UnitTests\\Class1.cs",
-              "RelativeDocumentMoniker": "SharpTools2024.UnitTests\\Class1.cs",
-              "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024.UnitTests\\Class1.cs",
-              "RelativeToolTip": "SharpTools2024.UnitTests\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwYAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T20:35:31.853Z"
-            },
-            {
-              "$type": "Document",
->>>>>>> Stashed changes
               "DocumentIndex": 1,
               "Title": "SharpTools2024.UnitTests.csproj",
               "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\TestProject1\\SharpTools2024.UnitTests.csproj",
@@ -58,8 +30,7 @@
               "RelativeToolTip": "TestProject1\\SharpTools2024.UnitTests.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-17T22:14:45.999Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T22:14:45.999Z"
             },
             {
               "$type": "Document",
@@ -69,14 +40,10 @@
               "RelativeDocumentMoniker": "TestProject1\\UnitTest1.cs",
               "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\TestProject1\\UnitTest1.cs",
               "RelativeToolTip": "TestProject1\\UnitTest1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAHAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-<<<<<<< Updated upstream
-              "WhenOpened": "2024-05-17T22:14:07.541Z",
+              "WhenOpened": "2024-05-17T22:56:41.729Z",
               "EditorCaption": ""
-=======
-              "WhenOpened": "2024-05-17T20:35:23.362Z"
->>>>>>> Stashed changes
             }
           ]
         }
