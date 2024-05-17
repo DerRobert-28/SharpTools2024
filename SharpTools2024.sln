@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTools2024.Console", "SharpTools2024.Console\SharpTools2024.Console.csproj", "{59C9BAF7-2567-4468-8013-754147A54A2F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpTools2024", "SharpTools2024\SharpTools2024.csproj", "{637C4EAC-6790-45CE-AA8F-477CA42983BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTools2024.UnitTests", "TestProject1\SharpTools2024.UnitTests.csproj", "{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTools2024.Console", "SharpTools2024.Console\SharpTools2024.Console.csproj", "{59C9BAF7-2567-4468-8013-754147A54A2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTools2024.UnitTests", "SharpTools2024.UnitTests\SharpTools2024.UnitTests.csproj", "{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

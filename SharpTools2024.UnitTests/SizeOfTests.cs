@@ -1,15 +1,14 @@
 ﻿namespace SharpTools2024.UnitTests;
 
-using Xunit;
 using SharpTools2024;
 
 public class SizeOfTests
 {
-	[Fact]
+	[Test]
 	public void BitsShouldStayBits()
 	{
 		var bits = SizeOf.Bits(12);
 		var result = bits.inBits();
-		Assert.Equal(12, result);
+		Assert.That(result, Is.EqualTo(12));
 	}
 }
