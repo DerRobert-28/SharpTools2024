@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "H:\\Development\\VisualStudio\\SharpTools2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\SharpTools2024.UnitTests.csproj|h:\\development\\visualstudio\\sharptools2024\\testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\SharpTools2024.UnitTests.csproj|solutionrelative:testproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\SharpTools2024.UnitTests.csproj|h:\\development\\visualstudio\\sharptools2024\\testproject1\\sharptools2024.unittests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|TestProject1\\SharpTools2024.UnitTests.csproj|solutionrelative:testproject1\\sharptools2024.unittests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{637C4EAC-6790-45CE-AA8F-477CA42983BA}|SharpTools2024\\SharpTools2024.csproj|h:\\development\\visualstudio\\sharptools2024\\sharptools2024\\sizeof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{637C4EAC-6790-45CE-AA8F-477CA42983BA}|SharpTools2024\\SharpTools2024.csproj|solutionrelative:sharptools2024\\sizeof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SharpTools2024.UnitTests.csproj",
-              "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\TestProject1\\SharpTools2024.UnitTests.csproj",
-              "RelativeDocumentMoniker": "TestProject1\\SharpTools2024.UnitTests.csproj",
-              "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\TestProject1\\SharpTools2024.UnitTests.csproj",
-              "RelativeToolTip": "TestProject1\\SharpTools2024.UnitTests.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-17T22:14:45.999Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\TestProject1\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "TestProject1\\UnitTest1.cs",
-              "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\TestProject1\\UnitTest1.cs",
-              "RelativeToolTip": "TestProject1\\UnitTest1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAACAAAA",
+              "Title": "SizeOf.cs",
+              "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024\\SizeOf.cs",
+              "RelativeDocumentMoniker": "SharpTools2024\\SizeOf.cs",
+              "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024\\SizeOf.cs",
+              "RelativeToolTip": "SharpTools2024\\SizeOf.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAABBwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T22:56:41.729Z",
+              "WhenOpened": "2024-05-17T23:07:24.561Z",
               "EditorCaption": ""
             }
           ]
