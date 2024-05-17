@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "H:\\Development\\VisualStudio\\SharpTools2024\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|SharpTools2024.UnitTests\\SharpTools2024.UnitTests.csproj|h:\\development\\visualstudio\\sharptools2024\\sharptools2024.unittests\\sizeoftests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EA58ED-B3F8-4F53-AE74-E0C7CF141ACE}|SharpTools2024.UnitTests\\SharpTools2024.UnitTests.csproj|solutionrelative:sharptools2024.unittests\\sizeoftests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{637C4EAC-6790-45CE-AA8F-477CA42983BA}|SharpTools2024\\SharpTools2024.csproj|h:\\development\\visualstudio\\sharptools2024\\sharptools2024\\sizeof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{637C4EAC-6790-45CE-AA8F-477CA42983BA}|SharpTools2024\\SharpTools2024.csproj|solutionrelative:sharptools2024\\sizeof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{59C9BAF7-2567-4468-8013-754147A54A2F}|SharpTools2024.Console\\SharpTools2024.Console.csproj|h:\\development\\visualstudio\\sharptools2024\\sharptools2024.console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59C9BAF7-2567-4468-8013-754147A54A2F}|SharpTools2024.Console\\SharpTools2024.Console.csproj|solutionrelative:sharptools2024.console\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SizeOf.cs",
               "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024\\SizeOf.cs",
               "RelativeDocumentMoniker": "SharpTools2024\\SizeOf.cs",
               "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024\\SizeOf.cs",
               "RelativeToolTip": "SharpTools2024\\SizeOf.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAxwAAAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAABBwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T23:07:24.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024.Console\\Program.cs",
-              "RelativeDocumentMoniker": "SharpTools2024.Console\\Program.cs",
-              "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024.Console\\Program.cs",
-              "RelativeToolTip": "SharpTools2024.Console\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T23:07:17.821Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SizeOfTests.cs",
-              "DocumentMoniker": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024.UnitTests\\SizeOfTests.cs",
-              "RelativeDocumentMoniker": "SharpTools2024.UnitTests\\SizeOfTests.cs",
-              "ToolTip": "H:\\Development\\VisualStudio\\SharpTools2024\\SharpTools2024.UnitTests\\SizeOfTests.cs",
-              "RelativeToolTip": "SharpTools2024.UnitTests\\SizeOfTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwoAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T23:07:07.211Z",
               "EditorCaption": ""
             }
           ]

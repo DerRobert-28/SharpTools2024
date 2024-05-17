@@ -11,3 +11,4 @@
 *.v2
 .vs/SharpTools2024/v17/.suo
 *.testlog
+/.vs

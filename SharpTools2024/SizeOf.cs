@@ -16,8 +16,15 @@ public sealed class SizeOf
 	public static SizeOf TeraBytes(long count) => TBytes(count);
 
 	public long inBits() => internalSize;
-	public long inBytes() => internalSize / 8;
-
+	public long inBytes() => inBits() / 8;
+	public long inKBytes() => inBytes() / 1024;
+	public long inKiloBytes() => inKBytes();
+	public long inMBytes() => inKBytes() / 1024;
+	public long inMegaBytes() => inMBytes();
+	public long inGBytes() => inMBytes() / 1024;
+	public long inGigaBytes() => inGBytes();
+	public long inTBytes() => inGBytes() / 1024;
+	public long inTeraBytes() => inTBytes();
 	
 	private SizeOf() {}
 	private SizeOf(long count) => internalSize = count;
