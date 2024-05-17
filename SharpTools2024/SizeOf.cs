@@ -10,7 +10,7 @@ public sealed class SizeOf
 	public static SizeOf KiloBytes(long count) => KBytes(count);
 	public static SizeOf MBytes(long count) => KBytes(count * 1024);
 	public static SizeOf MegaBytes(long count) => MBytes(count);
-	public static SizeOf GBytes(long count) => KBytes(count * 1024);
+	public static SizeOf GBytes(long count) => MBytes(count * 1024);
 	public static SizeOf GigaBytes(long count) => GBytes(count);
 	public static SizeOf TBytes(long count) => GBytes(count * 1024);
 	public static SizeOf TeraBytes(long count) => TBytes(count);
