@@ -8,6 +8,14 @@ public class SizeOfTests
 		_SIZE_1_ = 123,
 		_SIZE_2_ = 456;
 
+	private const long
+		_KILO_1_ = 1024,
+		_KILO_2_ = 8192;
+
+	//
+	//  ShouldStay-Tests:
+	//
+
 	[Test]
 	public void BitsShouldStayBits()
 	{
@@ -15,7 +23,7 @@ public class SizeOfTests
 		var result = size.inBits();
 		Assert.That(result, Is.EqualTo(_SIZE_1_));
 	}
-
+	
 	[Test]
 	public void BytesShouldStayBytes()
 	{
@@ -23,7 +31,7 @@ public class SizeOfTests
 		var result = size.inBytes();
 		Assert.That(result, Is.EqualTo(_SIZE_2_));
 	}
-
+	
 	[Test]
 	public void KiloBytesShouldStayKiloBytes()
 	{
@@ -71,7 +79,7 @@ public class SizeOfTests
 		Assert.That(result1, Is.EqualTo(_SIZE_2_));
 		Assert.That(result2, Is.EqualTo(_SIZE_2_));
 	}
-
+	
 	[Test]
 	public void TeraBytesShouldStayTeraBytes()
 	{
@@ -86,5 +94,222 @@ public class SizeOfTests
 		result2 = size.inTBytes();
 		Assert.That(result1, Is.EqualTo(_SIZE_2_));
 		Assert.That(result2, Is.EqualTo(_SIZE_2_));
+	}
+
+	//
+	//  Conversion-Tests:
+	//
+
+	[Test]
+	public void BitToByteConversionShouldBeCorrect()
+	{
+		var size = SizeOf.Bits(_SIZE_1_ * 8);
+		var result = size.inBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+		//
+		size = SizeOf.Bits(_SIZE_2_ * _KILO_2_);
+		result = size.inKBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_));
+		//
+		size = SizeOf.Bits(
+			_SIZE_1_ *
+			_KILO_2_ *
+			_KILO_1_);
+		result = size.inMBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+		//
+		size = SizeOf.Bits(
+			_SIZE_2_ *
+			_KILO_2_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inGBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_));
+		//
+		size = SizeOf.Bits(
+			_SIZE_1_ *
+			_KILO_2_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inTBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+
+
+	[Test]
+	public void ByteConversionShouldBeCorrect()
+	{
+		var size = SizeOf.Bytes(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(_SIZE_1_ * 8));
+		//
+		size = SizeOf.Bytes(_SIZE_2_ * _KILO_1_);
+		result = size.inKBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_));
+		//
+		size = SizeOf.Bytes(
+			_SIZE_1_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inMBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+		//
+		size = SizeOf.Bytes(
+			_SIZE_2_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inGBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_));
+		//
+		size = SizeOf.Bytes(
+			_SIZE_1_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inTBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+
+	[Test]
+	public void KiloByteConversionShouldBeCorrect()
+	{
+		var size = SizeOf.KBytes(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(_SIZE_1_* _KILO_2_));
+		//
+		size = SizeOf.KBytes(_SIZE_2_);
+		result = size.inBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_ * _KILO_1_));
+		//
+		size = SizeOf.KBytes(_SIZE_1_ * _KILO_1_);
+		result = size.inMBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+		//
+		size = SizeOf.KBytes(
+			_SIZE_2_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inGBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_));
+		//
+		size = SizeOf.KBytes(
+			_SIZE_1_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inTBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+	
+	[Test]
+	public void MegaByteConversionShouldBeCorrect()
+	{
+		var size = SizeOf.MBytes(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_1_ *
+			_KILO_2_ *
+			_KILO_1_));
+		//
+		size = SizeOf.MBytes(_SIZE_2_);
+		result = size.inBytes();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_2_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.MBytes(_SIZE_1_);
+		result = size.inKBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_ * _KILO_1_));
+		//
+		size = SizeOf.MBytes(_SIZE_2_ * _KILO_1_);
+		result = size.inGBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_));
+		//
+		size = SizeOf.MBytes(
+			_SIZE_1_ *
+			_KILO_1_ *
+			_KILO_1_);
+		result = size.inTBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+
+	[Test]
+	public void GigaByteConversionShouldBeCorrect()
+	{
+		var size = SizeOf.GBytes(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_1_ *
+			_KILO_2_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.GBytes(_SIZE_2_);
+		result = size.inBytes();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_2_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.GBytes(_SIZE_1_);
+		result = size.inKBytes();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_1_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.GBytes(_SIZE_2_);
+		result = size.inMBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_2_ * _KILO_1_));
+		//
+		size = SizeOf.GBytes(_SIZE_1_ * _KILO_1_);
+		result = size.inTBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+	
+	[Test]
+	public void TeraByteConversionShouldBeCorrect()
+	{
+		var size = SizeOf.TBytes(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_1_ *
+			_KILO_2_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.TBytes(_SIZE_2_);
+		result = size.inBytes();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_2_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.TBytes(_SIZE_1_);
+		result = size.inKBytes();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_1_ *
+			_KILO_1_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.TBytes(_SIZE_2_);
+		result = size.inMBytes();
+		Assert.That(result, Is.EqualTo(
+			_SIZE_2_ *
+			_KILO_1_ *
+			_KILO_1_));
+		//
+		size = SizeOf.TBytes(_SIZE_1_);
+		result = size.inGBytes();
+		Assert.That(result, Is.EqualTo(_SIZE_1_ * _KILO_1_));
 	}
 }
