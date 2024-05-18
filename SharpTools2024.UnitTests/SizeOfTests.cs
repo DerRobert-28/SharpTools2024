@@ -27,29 +27,31 @@ public class SizeOfTests
 	[Test]
 	public void KBitsShouldStayKBits()
 	{
-		var size = SizeOf.KBits(_SIZE_1_);
-		var result = size.inKBits();
+		var size = SizeOf.KBits(_SIZE_2_);
+		var result1 = size.inKBits();
+		var result2 = size.inKiloBits();
+		Assert.That(result1, Is.EqualTo(_SIZE_2_));
+		Assert.That(result2, Is.EqualTo(_SIZE_2_));
+	}
+	[Test]
+	public void MBitsShouldStayMBits()
+	{
+		var size = SizeOf.MBits(_SIZE_1_);
+		var result = size.inMBits();
 		Assert.That(result, Is.EqualTo(_SIZE_1_));
 	}
 	[Test]
-	public void BitsShouldStayBits()
+	public void GBitsShouldStayGBits()
 	{
-		var size = SizeOf.Bits(_SIZE_1_);
-		var result = size.inBits();
+		var size = SizeOf.GBits(_SIZE_1_);
+		var result = size.inGBits();
 		Assert.That(result, Is.EqualTo(_SIZE_1_));
 	}
 	[Test]
-	public void BitsShouldStayBits()
+	public void TBitsShouldStayTBits()
 	{
-		var size = SizeOf.Bits(_SIZE_1_);
-		var result = size.inBits();
-		Assert.That(result, Is.EqualTo(_SIZE_1_));
-	}
-	[Test]
-	public void BitsShouldStayBits()
-	{
-		var size = SizeOf.Bits(_SIZE_1_);
-		var result = size.inBits();
+		var size = SizeOf.TBits(_SIZE_1_);
+		var result = size.inTBits();
 		Assert.That(result, Is.EqualTo(_SIZE_1_));
 	}
 	

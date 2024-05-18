@@ -35,9 +35,13 @@ public sealed class SizeOf
 	//
 	public long inBits() => internalSize;
 	public long inKBits() => inBits() / 1024;
+	public long inKiloBits() => inKBits();
 	public long inMBits() => inKBits() / 1024;
+	public long inMegaBits() => inMBits();
 	public long inGBits() => inMBits() / 1024;
+	public long inGigaBits() => inGBits();
 	public long inTBits() => inGBits() / 1024;
+	public long inTeraBits() => inTBits();
 
 	//
 	//	BYTE-CONVERSION
