@@ -10,3 +10,9 @@ H:\Development\VisualStudio\SharpTools2024\SharpTools2024\obj\Debug\net9.0\Sharp
 H:\Development\VisualStudio\SharpTools2024\SharpTools2024\obj\Debug\net9.0\refint\SharpTools2024.dll
 H:\Development\VisualStudio\SharpTools2024\SharpTools2024\obj\Debug\net9.0\SharpTools2024.pdb
 H:\Development\VisualStudio\SharpTools2024\SharpTools2024\obj\Debug\net9.0\ref\SharpTools2024.dll
+H:\Development\VisualStudio\SharpTools2024\SharpTools2024.UnitTests\Results\SharpTools2024.deps.json
+H:\Development\VisualStudio\SharpTools2024\SharpTools2024.UnitTests\Results\SharpTools2024.dll
+H:\Development\VisualStudio\SharpTools2024\SharpTools2024.UnitTests\Results\SharpTools2024.pdb
+H:\Development\VisualStudio\SharpTools2024\SharpTools2024.TestResults\SharpTools2024.deps.json
+H:\Development\VisualStudio\SharpTools2024\SharpTools2024.TestResults\SharpTools2024.dll
+H:\Development\VisualStudio\SharpTools2024\SharpTools2024.TestResults\SharpTools2024.pdb
