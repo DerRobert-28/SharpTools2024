@@ -13,7 +13,7 @@ public class SizeOfTests
 		_KILO_2_ = 8192;
 
 	//
-	//  ShouldStay-Tests:
+	//  ShouldStayBit-Tests:
 	//
 
 	[Test]
@@ -23,7 +23,40 @@ public class SizeOfTests
 		var result = size.inBits();
 		Assert.That(result, Is.EqualTo(_SIZE_1_));
 	}
+
+	[Test]
+	public void KBitsShouldStayKBits()
+	{
+		var size = SizeOf.KBits(_SIZE_1_);
+		var result = size.inKBits();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+	[Test]
+	public void BitsShouldStayBits()
+	{
+		var size = SizeOf.Bits(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+	[Test]
+	public void BitsShouldStayBits()
+	{
+		var size = SizeOf.Bits(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
+	[Test]
+	public void BitsShouldStayBits()
+	{
+		var size = SizeOf.Bits(_SIZE_1_);
+		var result = size.inBits();
+		Assert.That(result, Is.EqualTo(_SIZE_1_));
+	}
 	
+	//
+	//  ShouldStayByte-Tests:
+	//
+
 	[Test]
 	public void BytesShouldStayBytes()
 	{
