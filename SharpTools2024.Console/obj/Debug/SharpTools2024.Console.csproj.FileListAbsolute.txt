@@ -1,7 +1,0 @@
-H:\Development\VisualStudio\SharpTools2024\SharpTools2024.Console\bin\Debug\SharpTools2024.exe.config
-H:\Development\VisualStudio\SharpTools2024\SharpTools2024.Console\bin\Debug\SharpTools2024.exe
-H:\Development\VisualStudio\SharpTools2024\SharpTools2024.Console\bin\Debug\SharpTools2024.pdb
-H:\Development\VisualStudio\SharpTools2024\SharpTools2024.Console\obj\Debug\SharpTools2024.Console.csproj.AssemblyReference.cache
-H:\Development\VisualStudio\SharpTools2024\SharpTools2024.Console\obj\Debug\SharpTools2024.Console.csproj.CoreCompileInputs.cache
-H:\Development\VisualStudio\SharpTools2024\SharpTools2024.Console\obj\Debug\SharpTools2024.exe
-H:\Development\VisualStudio\SharpTools2024\SharpTools2024.Console\obj\Debug\SharpTools2024.pdb
