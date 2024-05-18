@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SharpTools2024.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+375eb99b9b2132f9ff28df7843150766be796434")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+837d7c7706f2135596e69a18bdc46539322d5f7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SharpTools2024.UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SharpTools2024.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
