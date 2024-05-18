@@ -34,6 +34,10 @@ public sealed class SizeOf
 	//	BIT-CONVERSION
 	//
 	public long inBits() => internalSize;
+	public long inKBits() => inBits() / 1024;
+	public long inMBits() => inKBits() / 1024;
+	public long inGBits() => inMBits() / 1024;
+	public long inTBits() => inGBits() / 1024;
 
 	//
 	//	BYTE-CONVERSION
