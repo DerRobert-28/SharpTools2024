@@ -1,8 +1,6 @@
 ﻿namespace SharpTools2024.UnitTests;
 
 using SharpTools2024;
-using System.Drawing;
-using System.Reflection.Metadata.Ecma335;
 
 public class SizeOfTests
 {
