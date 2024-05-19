@@ -7,10 +7,10 @@ using System.Reflection.Metadata.Ecma335;
 public class SizeOfTests
 {
 	private const long
-		KILO = 1024,
-		MEGA = KILO * KILO,
-		GIGA = MEGA * KILO,
-		TERA = GIGA * KILO;
+		KILO_1 = 1024,
+		KILO_2 = KILO_1 * KILO_1,
+		KILO_3 = KILO_1 * KILO_1 * KILO_1,
+		KILO_4 = KILO_1 * KILO_1 * KILO_1 * KILO_1;
 
 	 private readonly Random RandomSize = new();
 
@@ -33,70 +33,138 @@ public class SizeOfTests
 	public void KiloBits_ShouldBe_Bits_Times1024()
 	{
 		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bits(size * KILO);
+		var sizeOf = SizeOf.Bits(size * KILO_1);
 		var result = sizeOf.inKBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
-		sizeOf = SizeOf.Bits(size * KILO);
+		sizeOf = SizeOf.Bits(size * KILO_1);
 		result = sizeOf.inKiloBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
 		sizeOf = SizeOf.KBits(size);
 		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * KILO));
+		Assert.That(result, Is.EqualTo(size * KILO_1));
 		//
 		size = fetchRandomSize();
 		sizeOf = SizeOf.KiloBits(size);
 		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * KILO));
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+	}
+	
+	[Test]
+	public void KiloBits_ShouldBe_KiloBits()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.KBits(size);
+		var result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size));
 	}
 
 	[Test]
 	public void MegaBits_ShouldBe_Bits_Times1024_Squared()
 	{
 		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bits(size * MEGA);
+		var sizeOf = SizeOf.Bits(size * KILO_2);
 		var result = sizeOf.inMBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
-		sizeOf = SizeOf.Bits(size * MEGA);
+		sizeOf = SizeOf.Bits(size * KILO_2);
 		result = sizeOf.inMegaBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
 		sizeOf = SizeOf.MBits(size);
 		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * MEGA));
+		Assert.That(result, Is.EqualTo(size * KILO_2));
 		//
 		size = fetchRandomSize();
 		sizeOf = SizeOf.MegaBits(size);
 		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * MEGA));
+		Assert.That(result, Is.EqualTo(size * KILO_2));
 	}
 
 	[Test]
 	public void MegaBits_ShouldBe_KiloBits_Times1024()
 	{
 		var size = fetchRandomSize();
-		var sizeOf = SizeOf.KBits(size * KILO);
+		var sizeOf = SizeOf.KBits(size * KILO_1);
 		var result = sizeOf.inMBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
-		sizeOf = SizeOf.KiloBits(size * KILO);
-		result = sizeOf.inMBits();
-		Assert.That(result, Is.EqualTo(size));
-		//
-		size = fetchRandomSize();
-		sizeOf = SizeOf.KBits(size * KILO);
+		sizeOf = SizeOf.KBits(size * KILO_1);
 		result = sizeOf.inMegaBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
-		sizeOf = SizeOf.KiloBits(size * KILO);
+		sizeOf = SizeOf.KiloBits(size * KILO_1);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size * KILO_1);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBits(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+	}
+
+	[Test]
+	public void MegaBits_ShouldBe_MegaBits()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.MBits(size);
+		var result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBits(size);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size);
 		result = sizeOf.inMegaBits();
 		Assert.That(result, Is.EqualTo(size));
 	}
@@ -105,24 +173,317 @@ public class SizeOfTests
 	public void GigaBits_ShouldBe_Bits_Times1024_Cubed()
 	{
 		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bits(size * GIGA);
+		var sizeOf = SizeOf.Bits(size * KILO_3);
 		var result = sizeOf.inGBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
-		sizeOf = SizeOf.Bits(size * GIGA);
+		sizeOf = SizeOf.Bits(size * KILO_3);
 		result = sizeOf.inGigaBits();
 		Assert.That(result, Is.EqualTo(size));
 		//
 		size = fetchRandomSize();
 		sizeOf = SizeOf.GBits(size);
 		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * GIGA));
+		Assert.That(result, Is.EqualTo(size * KILO_3));
 		//
 		size = fetchRandomSize();
 		sizeOf = SizeOf.GigaBits(size);
 		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * GIGA));
+		Assert.That(result, Is.EqualTo(size * KILO_3));
+	}
+
+	[Test]
+	public void GigaBits_ShouldBe_KiloBits_Times1024_Squared()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.KBits(size * KILO_2);
+		var result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KBits(size * KILO_2);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size * KILO_2);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size * KILO_2);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+	}
+	
+	[Test]
+	public void GigaBits_ShouldBe_MegaBits_Times1024()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.MBits(size * KILO_1);
+		var result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBits(size * KILO_1);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size * KILO_1);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size * KILO_1);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+	}
+	
+	[Test]
+	public void GigaBits_ShouldBe_GigaBits()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.GBits(size);
+		var result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+	}
+
+	[Test]
+	public void TeraBits_ShouldBe_Bits_Times1024_ToTheFourth()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.Bits(size * KILO_4);
+		var result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.Bits(size * KILO_4);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inBits();
+		Assert.That(result, Is.EqualTo(size * KILO_4));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inBits();
+		Assert.That(result, Is.EqualTo(size * KILO_4));
+	}
+
+	[Test]
+	public void TeraBits_ShouldBe_KiloBits_Times1024_Cubed()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.KBits(size * KILO_3);
+		var result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KBits(size * KILO_3);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size * KILO_3);
+		result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size * KILO_3);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * KILO_3));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * KILO_3));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * KILO_3));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * KILO_3));
+	}
+
+	[Test]
+	public void TeraBits_ShouldBe_MegaBits_Times1024_Squared()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.MBits(size * KILO_2);
+		var result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBits(size * KILO_2);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size * KILO_2);
+		result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size * KILO_2);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size * KILO_2));
+	}
+	
+	[Test]
+	public void TeraBits_ShouldBe_GigaBits_Times1024()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.GBits(size * KILO_1);
+		var result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size * KILO_1);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size * KILO_1);
+		result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size * KILO_1);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size * KILO_1));
+	}
+
+		
+	[Test]
+	public void TeraBits_ShouldBe_TeraBits()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.TBits(size);
+		var result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size));
 	}
 
 //	#########################
