@@ -1,1 +1,1 @@
-@dotnet test -l html -v diag >SharpTools2024.UnitTests.log
+@dotnet test -l html -v detailed >SharpTools2024.UnitTests.log
