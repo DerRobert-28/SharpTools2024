@@ -1,18 +1,31 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: SharpTools2024 (Automation)
+name: SharpTools2024 (Manual)
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-  schedule:
-  - cron: "0 2 * * 1-5"
-
+  workflow_dispatch:
+    inputs: 
+    logLevel:
+      description: 'Log level'
+      required: true
+      default: 'warning'
+      type: choice
+      options:
+      - info
+      - warning
+      - debug
+    tags:
+      description: 'Test scenario tags'
+      required: false
+      type: boolean
+    environment:
+      description: 'Environment to run tests against'
+      type: environment
+      required: true
+  
 jobs:
-  build:
+  Manual:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
