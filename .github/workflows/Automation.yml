@@ -27,7 +27,7 @@ jobs:
     - name: Create artifacts directory
       run: mkdir -p SharpTools2024/Artifacts
     - name: Test
-      run: dotnet test -l html -v detailed >SharpTools2024/Artifacts/SharpTools2024.UnitTests.log
+      run: dotnet test -l html -v detailed >SharpTools2024.UnitTests.log
     - name: Upload Test Results
       uses: actions/upload-artifact@v4
       with:
