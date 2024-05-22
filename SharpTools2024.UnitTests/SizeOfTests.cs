@@ -1146,13 +1146,6 @@ public class SizeOfTests
 		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE * MILLION));
 	}
 
-	[Test]
-	public void Fail()
-	{
-		var result = 12;
-		Assert.That(result, Is.EqualTo(34));
-	}
-
 	//	#########################
 	//	##                     ##
 	//	##  Private Method(s)  ##
