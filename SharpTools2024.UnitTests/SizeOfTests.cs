@@ -1149,7 +1149,8 @@ public class SizeOfTests
 	[Test]
 	public void Fail()
 	{
-		Assert.Fail();
+		var result = 12;
+		Assert.That(result, Is.EqualTo(34));
 	}
 
 	//	#########################

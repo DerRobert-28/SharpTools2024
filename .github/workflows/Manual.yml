@@ -38,6 +38,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test -l html -v diag
+      run: dotnet test -l html -v detailed
     # run: dotnet test -l html -v diag >test.log
     # run: dotnet test --no-build --verbosity normal

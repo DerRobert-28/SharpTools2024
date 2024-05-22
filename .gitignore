@@ -7,10 +7,14 @@
 .vs/
 /.vs
 /.vs/
+/TestResults
+/TestResults/
 /bin
 /bin/
 /obj
 /obj/
+TestResults
+TestResults/
 bin
 bin/
 obj
