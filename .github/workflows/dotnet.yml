@@ -4,46 +4,46 @@
 name: .NET
 
 on:
-	push:
-		branches: [ "master" ]
-	pull_request:
-		branches: [ "master" ]
-	schedule:
-	-   cron: "0 2 * * 1-5"
-	workflow_dispatch:
-		inputs: 
-			logLevel:
-				description: 'Log level'
-				required: true
-				default: 'warning'
-				type: choice
-				options:
-				-   info
-				-   warning
-				-   debug
-			tags:
-				description: 'Test scenario tags'
-				required: false
-				type: boolean
-			environment:
-                description: 'Environment to run tests against'
-                type: environment
-                required: true
-	
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+  - cron: "0 2 * * 1-5"
+  workflow_dispatch:
+    inputs: 
+    logLevel:
+      description: 'Log level'
+      required: true
+      default: 'warning'
+      type: choice
+      options:
+      - info
+      - warning
+      - debug
+    tags:
+      description: 'Test scenario tags'
+      required: false
+      type: boolean
+    environment:
+      description: 'Environment to run tests against'
+      type: environment
+      required: true
+  
 jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        -   uses: actions/checkout@v4
-        -   name: Setup .NET
-            uses: actions/setup-dotnet@v4
-            with:
-                dotnet-version: 9.0.x
-        -   name: Restore dependencies
-            run: dotnet restore
-        -   name: Build
-            run: dotnet build --no-restore
-        -   name: Test
-            run: dotnet test -l html -v diag >test.log
+  build:
+  runs-on: windows-latest
+  steps:
+  - uses: actions/checkout@v4
+  - name: Setup .NET
+    uses: actions/setup-dotnet@v4
+    with:
+      dotnet-version: 9.0.x
+  - name: Restore dependencies
+    run: dotnet restore
+  - name: Build
+    run: dotnet build --no-restore
+  - name: Test
+    run: dotnet test -l html -v diag >test.log
 
-#           run: dotnet test --no-build --verbosity normal
+#   run: dotnet test --no-build --verbosity normal
