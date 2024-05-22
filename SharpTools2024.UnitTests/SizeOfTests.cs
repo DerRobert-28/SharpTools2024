@@ -1,6 +1,11 @@
 ﻿namespace SharpTools2024.UnitTests;
 
+using NUnit.Framework.Constraints;
 using SharpTools2024;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.Marshalling;
+using System.Runtime.Serialization;
 
 public class SizeOfTests
 {
@@ -1141,6 +1146,11 @@ public class SizeOfTests
 		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE * MILLION));
 	}
 
+	[Test]
+	public void Fail()
+	{
+		Assert.Fail();
+	}
 
 	//	#########################
 	//	##                     ##
