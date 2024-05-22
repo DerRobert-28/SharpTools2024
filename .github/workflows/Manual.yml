@@ -28,7 +28,6 @@ jobs:
   Manual:
     runs-on: windows-latest
     steps:
-    - run: mkdir -p SharpTools2024/Artifacts
     - uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -38,6 +37,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Create artifacts directory
+      run: mkdir -p SharpTools2024/Artifacts
     - name: Test
       run: dotnet test -l html -v detailed >SharpTools2024/Artifacts/SharpTools2024.UnitTests.log
     - name: Upload Test Results
@@ -45,5 +46,5 @@ jobs:
       with:
         name: test-results
         path: |
-          ./TestResults/TestResults.html
-          ./SharpTools2024.UnitTests.log
+          **/TestResults/*.html
+          **/*.log
