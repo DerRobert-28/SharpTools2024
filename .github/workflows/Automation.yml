@@ -26,5 +26,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test -l html -v detailed
-    # run: dotnet test -l html -v diag >test.log
-    # run: dotnet test --no-build --verbosity normal
+   - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: |
+          ./TestResults/TestResults.html
+          ./SharpTools2024.UnitTests.log
