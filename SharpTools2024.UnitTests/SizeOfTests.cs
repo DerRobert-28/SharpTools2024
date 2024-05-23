@@ -1,4 +1,6 @@
-﻿namespace SharpTools2024.UnitTests;
+﻿using System.Dynamic;
+
+namespace SharpTools2024.UnitTests;
 
 using NUnit.Framework.Constraints;
 using SharpTools2024;
@@ -1144,6 +1146,94 @@ public class SizeOfTests
 		sizeOf = SizeOf.MegaBytes(size);
 		result = sizeOf.inBits();
 		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE * MILLION));
+	}
+
+	[Test]
+	public void MegaBytes_ShouldBe_KiloBitsTimes8x1024()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.KBits(size * BITS_PER_BYTE * THOUSAND);
+		var result = sizeOf.inMBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KBits(size * BITS_PER_BYTE * THOUSAND);
+		result = sizeOf.inMegaBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size * BITS_PER_BYTE * THOUSAND);
+		result = sizeOf.inMBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBits(size * BITS_PER_BYTE * THOUSAND);
+		result = sizeOf.inMegaBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBytes(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE * THOUSAND));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBytes(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE * THOUSAND));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBytes(size);
+		result = sizeOf.inKBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE * THOUSAND));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBytes(size);
+		result = sizeOf.inKiloBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE * THOUSAND));
+	}
+
+	[Test]
+	public void MegaBytes_ShouldBe_MegaBitsTimes8()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.MBits(size * BITS_PER_BYTE);
+		var result = sizeOf.inMBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBits(size * BITS_PER_BYTE);
+		result = sizeOf.inMegaBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size * BITS_PER_BYTE);
+		result = sizeOf.inMBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBits(size * BITS_PER_BYTE);
+		result = sizeOf.inMegaBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBytes(size);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBytes(size);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBytes(size);
+		result = sizeOf.inMBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBytes(size);
+		result = sizeOf.inMegaBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
 	}
 
 	//	#########################
