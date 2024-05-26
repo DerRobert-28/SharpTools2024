@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ "master" ]
   schedule:
-  - cron: "0 2 * * 1-5"
+  - cron: "0 6 * * 0-6"
 
 jobs:
   Automation:
@@ -24,6 +24,14 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Create artifacts directory
+      run: mkdir -p SharpTools2024/Artifacts
     - name: Test
-      run: dotnet test -l html -v diag >test.log
-    # run: dotnet test --no-build --verbosity normal
+      run: dotnet test -l html -v detailed >SharpTools2024.UnitTests.log
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: |
+          **/TestResults/*.html
+          **/*.log
