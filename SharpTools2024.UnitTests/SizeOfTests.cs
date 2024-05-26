@@ -692,6 +692,30 @@ public class SizeOfTests
 
 	#region 1 GigaBit should be 134'217'728 Bytes
 
+	[Test]
+	public void GigaBits_ShouldBe_BytesTimes128x1024x1024()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.Bytes(size * BYTES_PER_KBIT * MILLION);
+		var result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.Bytes(size * BYTES_PER_KBIT * MILLION);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inBytes();
+		Assert.That(result, Is.EqualTo(size * BYTES_PER_KBIT * MILLION));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inBytes();
+		Assert.That(result, Is.EqualTo(size * BYTES_PER_KBIT * MILLION));
+	}
+
 	#endregion
 	
 	#region 1 GigaBit should be 1'048'576 KiloBits
@@ -744,6 +768,50 @@ public class SizeOfTests
 
 	#region 1 GigaBit should be 131'072 KiloBytes
 
+	[Test]
+	public void GigaBits_ShouldBe_KiloBytesTimes128x1024()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.KBytes(size * BYTES_PER_KBIT * THOUSAND);
+		var result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KBytes(size * BYTES_PER_KBIT * THOUSAND);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBytes(size * BYTES_PER_KBIT * THOUSAND);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.KiloBytes(size * BYTES_PER_KBIT * THOUSAND);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inKBytes();
+		Assert.That(result, Is.EqualTo(size * THOUSAND * BYTES_PER_KBIT));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inKiloBytes();
+		Assert.That(result, Is.EqualTo(size * THOUSAND * BYTES_PER_KBIT));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inKBytes();
+		Assert.That(result, Is.EqualTo(size * THOUSAND * BYTES_PER_KBIT));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inKiloBytes();
+		Assert.That(result, Is.EqualTo(size * THOUSAND * BYTES_PER_KBIT));
+	}
+
 	#endregion
 	
 	#region 1 GigaBit should be 1'024 MegaBits
@@ -795,6 +863,50 @@ public class SizeOfTests
 	#endregion
 
 	#region 1 GigaBit should be 128 MegaBytes
+
+	[Test]
+	public void GigaBits_ShouldBe_MegaBytesTimes128()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.MBytes(size * BYTES_PER_KBIT);
+		var result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MBytes(size * BYTES_PER_KBIT);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBytes(size * BYTES_PER_KBIT);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.MegaBytes(size * BYTES_PER_KBIT);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inMBytes();
+		Assert.That(result, Is.EqualTo(size * BYTES_PER_KBIT));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size);
+		result = sizeOf.inMegaBytes();
+		Assert.That(result, Is.EqualTo(size * BYTES_PER_KBIT));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inMBytes();
+		Assert.That(result, Is.EqualTo(size * BYTES_PER_KBIT));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size);
+		result = sizeOf.inMegaBytes();
+		Assert.That(result, Is.EqualTo(size * BYTES_PER_KBIT));
+	}
 
 	#endregion
 
@@ -963,6 +1075,50 @@ public class SizeOfTests
 	#endregion
 	
 	#region 1 GigaByte should be 8 GigaBits
+
+	[Test]
+	public void GigaBytes_ShouldBe_GigaBitsTimes8()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.GBits(size * BITS_PER_BYTE);
+		var result = sizeOf.inGBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBits(size * BITS_PER_BYTE);
+		result = sizeOf.inGigaBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size * BITS_PER_BYTE);
+		result = sizeOf.inGBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBits(size * BITS_PER_BYTE);
+		result = sizeOf.inGigaBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBytes(size);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GBytes(size);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBytes(size);
+		result = sizeOf.inGBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.GigaBytes(size);
+		result = sizeOf.inGigaBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+	}
 
 	#endregion
 
@@ -1347,6 +1503,8 @@ public class SizeOfTests
 	#endregion
 	
 	#region 1 TeraByte should be 8'192 GigaBits
+	
+	
 
 	#endregion
 
@@ -1399,6 +1557,50 @@ public class SizeOfTests
 	#endregion
 	
 	#region 1 TeraByte should be 8 TeraBits
+	
+	[Test]
+	public void TeraBytes_ShouldBe_TeraBitsTimes8()
+	{
+		var size = fetchRandomSize();
+		var sizeOf = SizeOf.TBits(size * BITS_PER_BYTE);
+		var result = sizeOf.inTBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBits(size * BITS_PER_BYTE);
+		result = sizeOf.inTeraBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size * BITS_PER_BYTE);
+		result = sizeOf.inTBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBits(size * BITS_PER_BYTE);
+		result = sizeOf.inTeraBytes();
+		Assert.That(result, Is.EqualTo(size));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBytes(size);
+		result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TBytes(size);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBytes(size);
+		result = sizeOf.inTBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		//
+		size = fetchRandomSize();
+		sizeOf = SizeOf.TeraBytes(size);
+		result = sizeOf.inTeraBits();
+		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+	}
 
 	#endregion
 
@@ -1436,5 +1638,24 @@ public class SizeOfTests
 	//	##                     ##
 	//	#########################
 
-	private byte fetchRandomSize() => (byte)(RandomSize.Next() & 127);
+	private int fetchRandomSize()
+	{
+		while(true)
+		{
+			var size = RandomSize.Next() & 127;
+			if(size != 0) return size;
+		}
+	}
+	
+	private int[] fetchTwoRandomSizes()
+	{
+		var sizes = new int[2];
+		do
+		{
+			sizes[0] = fetchRandomSize();
+			sizes[1] = fetchRandomSize();
+		}
+		while(sizes[0] == sizes[1]);
+		return sizes;
+	}
 }
