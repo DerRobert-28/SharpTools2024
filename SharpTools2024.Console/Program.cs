@@ -2,8 +2,10 @@
 
 using static System.Console; 
 
-public class Program {
-	public static void Main(string[] args) {
+class Program
+{
+	static void Main(string[] args)
+	{
 		WriteLine("hallo");
 		ReadLine();
 	}
