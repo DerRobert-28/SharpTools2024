@@ -1,10 +1,10 @@
-﻿namespace SharpTools2024.UnitTests.NegativeTests;
+﻿namespace SharpTools2024.UnitTests.SizeOfTests;
 
 using SharpTools2024;
 using SharpTools2024.UnitTests.Helpers;
 
-public class SizeOfTestsForLimits: SizeOfHelper {
-	
+public class LimitTests : SizeOfHelper {
+
 	[Test]
 	public void BitSizeShouldBeExact() {
 		var size = fetchRandomSize();
@@ -66,7 +66,7 @@ public class SizeOfTestsForLimits: SizeOfHelper {
 		Assert.That(result, Is.Not.EqualTo(size - 1));
 		Assert.That(result, Is.Not.EqualTo(size + 1));
 	}
-	
+
 	[Test]
 	public void MegaBitSizeShouldBeExact() {
 		var size = fetchRandomSize();

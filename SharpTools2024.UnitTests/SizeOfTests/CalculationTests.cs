@@ -1,9 +1,9 @@
-﻿namespace SharpTools2024.UnitTests.PositiveTests;
+﻿namespace SharpTools2024.UnitTests.SizeOfTests;
 
 using SharpTools2024;
 using SharpTools2024.UnitTests.Helpers;
 
-public class SizeOfTests: SizeOfHelper {
+public class CalculationTests: SizeOfHelper {
 
 	[Test]
 	public void Bits_ShouldBe_Bits() {
