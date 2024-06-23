@@ -3,7 +3,7 @@
 using SharpTools2024;
 using SharpTools2024.UnitTests.Helpers;
 
-public class UnitSizeTests : SizeOfHelper {
+public class UnitSizeTests: SizeOfHelper {
 
 	[Test]
 	public void Bits_ShouldNotBe_Bytes() {

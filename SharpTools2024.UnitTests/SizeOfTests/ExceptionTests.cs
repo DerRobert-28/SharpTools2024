@@ -15,124 +15,99 @@ public class ExceptionTests: SizeOfHelper {
 		= "Test error message";
 
 	[Test]
-	public void NegativeBitSizeShouldThrowException() {
-		var negativeSize = -fetchRandomSize();
-		try {
-			var sizeOf = SizeOf.Bits(negativeSize);
-			Assert.Fail("Negative bit size should throw an exception");
-		}
-		catch(Exception ex) {
-			var actualType = ex.GetType();
-			var expectedType = typeof(SizeOfException);
-			Assert.That(actualType, Is.EqualTo(expectedType));
-		}
-	}
+	public void NegativeBitSizeShouldThrowException()
+		=> negativeSizeShouldThrowException(SizeOf.Bits, "Negative bit size should throw an exception");
 
 	[Test]
-	public void NegativeByteSizeShouldThrowAnException() {
-		var negativeSize = -fetchRandomSize();
-		try {
-			var sizeOf = SizeOf.Bytes(negativeSize);
-			Assert.Fail("Negative byte size should throw an exception");
-		}
-		catch(Exception ex) {
-			var actualType = ex.GetType();
-			var expectedType = typeof(SizeOfException);
-			Assert.That(actualType, Is.EqualTo(expectedType));
-		}
-	}
+	public void NegativeByteSizeShouldThrowAnException()
+		=> negativeSizeShouldThrowException(SizeOf.Bytes, "Negative byte size should throw an exception");
 
 	[Test]
 	public void AssumeShouldThrowException() {
-		var assume = expectPrivateMethod("assume");
-		try {
-			assume.Invoke(null, [true, TEST_ERROR_MESSAGE]);
-			Assert.Fail("Assume should throw an exception");
-		}
-		catch(Exception ex) {
-			var innerException = ex.InnerException;
-			Assert.That(innerException, Is.Not.Null);
-			//
-			var actualType = innerException.GetType();
-			var expectedType = typeof(SizeOfException);
-			Assert.That(actualType, Is.EqualTo(expectedType));
-		}
+		var result = shouldThrowException("assume", [true, TEST_ERROR_MESSAGE], "Assume should throw an exception");
+		Assert.That(result, Is.EqualTo(TEST_ERROR_MESSAGE));
 	}
 
 	[Test]
-	public void AssumeShouldNotThrowException() {
-		var assume = expectPrivateMethod("assume");
-		try {
-			assume.Invoke(assume, [false, TEST_ERROR_MESSAGE]);
-		}
-		catch {
-			Assert.Fail("Assume should not throw an exception.");
-		}
-	}
+	public void AssumeShouldNotThrowException()
+		=> shouldNotThrowException("assume", [false, string.Empty]);
 
 	[Test]
 	public void DivisionShouldNotThrowException() {
-		var divide = expectPrivateMethod("divide");
 		var size = fetchRandomSize();
 		var factor = fetchRandomSize();
-		try {
-			divide.Invoke(null, [size, factor]);
-		}
-		catch {
-			Assert.Fail("Division should not throw an exception");
-		}
+		shouldNotThrowException("divide", [size, factor]);
 	}
 
 	[Test]
 	public void DivisionWithNegativeSizeShouldThrowException() {
-		var divide = expectPrivateMethod("divide");
 		var negativeSize = -fetchRandomSize();
 		var factor = fetchRandomSize();
-		try {
-			divide.Invoke(null, [negativeSize, factor]);
-			Assert.Fail("Division with negative size should throw an Exception");
-		}
-		catch(Exception ex) {
-			var innerException = ex.InnerException;
-			Assert.That(innerException, Is.Not.Null);
-			//
-			var actualMessage = innerException.Message;
-			var actualType = innerException.GetType();
-			var expectedType = typeof(SizeOfException);
-			Assert.That(actualType, Is.EqualTo(expectedType));
-			Assert.That(actualMessage.StartsWith("Size "), Is.True);
-		}
+		divisionWithNegativeValuesShouldThrowException(negativeSize, factor, "size");
 	}
 
 	[Test]
 	public void DivisionWithNegativeFactorShouldThrowException() {
-		var divide = expectPrivateMethod("divide");
 		var size = fetchRandomSize();
 		var negativeFactor = -fetchRandomSize();
-		try {
-			divide.Invoke(null, [size, negativeFactor]);
-			Assert.Fail("Division with negative factor should throw an Exception");
-		}
-		catch(Exception ex) {
-			var innerException = ex.InnerException;
-			Assert.That(innerException, Is.Not.Null);
-			//
-			var actualMessage = innerException.Message;
-			var actualType = innerException.GetType();
-			var expectedType = typeof(SizeOfException);
-			Assert.That(actualType, Is.EqualTo(expectedType));
-			Assert.That(actualMessage.StartsWith("Factor "), Is.True);
-		}
+		divisionWithNegativeValuesShouldThrowException(size, negativeFactor, "factor");
 	}
 
 	//
 	//	PRIVATE FUNCTIONS:
 	//
+	
+	private void divisionWithNegativeValuesShouldThrowException(long size, long factor, string which) {
+		var message = $"Division with negative {which.ToLower()} should throw an Exception";
+		var result = shouldThrowException("divide", [size, factor], message);
+		Assert.That(result.ToLower().StartsWith(which.ToLower()), Is.True);
+	}
 
 	private MethodInfo expectPrivateMethod(string methodName) {
 		var sizeOfType = typeof(SizeOf);
 		var method = sizeOfType.GetMethod(methodName, PRIVATE);
 		Assert.That(method, Is.Not.Null);
 		return method;
+	}
+
+	private void negativeSizeShouldThrowException(Func<long, SizeOf> callback, string message) {
+		var negativeSize = -fetchRandomSize();
+		try {
+			var sizeOf = callback(negativeSize);
+			Assert.Fail(message);
+		}
+		catch(Exception ex) {
+			var actualType = ex.GetType();
+			var expectedType = typeof(SizeOfException);
+			Assert.That(actualType, Is.EqualTo(expectedType));
+		}
+	}
+
+	private void shouldNotThrowException(string methodName, object[] parameters) {
+		var method = expectPrivateMethod(methodName);
+		try {
+			method.Invoke(null, parameters);
+		}
+		catch {
+			Assert.Fail($"Method '{methodName}' should not throw an exception.");
+		}
+	}
+
+	private string shouldThrowException(string methodName, object[] parameters, string message) {
+		var method = expectPrivateMethod(methodName);
+		try {
+			method.Invoke(null, parameters);
+			Assert.Fail(message);
+			return string.Empty;
+		}
+		catch(Exception ex) {
+			var innerException = ex.InnerException;
+			Assert.That(innerException, Is.Not.Null);
+			//
+			var actualType = innerException.GetType();
+			var expectedType = typeof(SizeOfException);
+			Assert.That(actualType, Is.EqualTo(expectedType));
+			return innerException.Message;
+		}
 	}
 }

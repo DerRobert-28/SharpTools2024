@@ -4,57 +4,28 @@ using SharpTools2024;
 using SharpTools2024.UnitTests.Helpers;
 
 public class CalculationTests: SizeOfHelper {
+	
 
 	[Test]
-	public void Bits_ShouldBe_Bits() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bits(size);
-		var result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size));
-	}
+	public void Bits_ShouldBe_Bits()
+		=> shouldBeEqual(SizeOf.Bits, size => size.inBits);
 
 	[Test]
 	public void Bytes_ShouldBe_BitsTimes8() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bits(size * BITS_PER_BYTE);
-		var result = sizeOf.inBytes();
-		Assert.That(result, Is.EqualTo(size));
-		//
-		size = fetchRandomSize();
-		sizeOf = SizeOf.Bytes(size);
-		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * BITS_PER_BYTE));
+		shouldBeLessBy(BITS_PER_BYTE, SizeOf.Bits, size => size.inBytes);
+		shouldBeGreaterBy(BITS_PER_BYTE, SizeOf.Bytes, size => size.inBits);
 	}
 
 	[Test]
-	public void Bytes_ShouldBe_Bytes() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bytes(size);
-		var result = sizeOf.inBytes();
-		Assert.That(result, Is.EqualTo(size));
-	}
+	public void Bytes_ShouldBe_Bytes()
+		=> shouldBeEqual(SizeOf.Bytes, size => size.inBytes);
 
 	[Test]
 	public void KiloBits_ShouldBe_BitsTimes1024() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bits(size * THOUSAND);
-		var result = sizeOf.inKBits();
-		Assert.That(result, Is.EqualTo(size));
-		//
-		size = fetchRandomSize();
-		sizeOf = SizeOf.Bits(size * THOUSAND);
-		result = sizeOf.inKiloBits();
-		Assert.That(result, Is.EqualTo(size));
-		//
-		size = fetchRandomSize();
-		sizeOf = SizeOf.KBits(size);
-		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * THOUSAND));
-		//
-		size = fetchRandomSize();
-		sizeOf = SizeOf.KiloBits(size);
-		result = sizeOf.inBits();
-		Assert.That(result, Is.EqualTo(size * THOUSAND));
+		shouldBeLessBy(THOUSAND, SizeOf.Bits, size => size.inKBits);
+		shouldBeLessBy(THOUSAND, SizeOf.Bits, size => size.inKiloBits);
+		shouldBeGreaterBy(THOUSAND, SizeOf.KBits, size => size.inBits);
+		shouldBeGreaterBy(THOUSAND, SizeOf.KiloBits, size => size.inBits);
 	}
 
 	[Test]
@@ -1768,5 +1739,30 @@ public class CalculationTests: SizeOfHelper {
 		sizeOf = SizeOf.TeraBytes(size);
 		result = sizeOf.inTeraBytes();
 		Assert.That(result, Is.EqualTo(size));
+	}
+
+	//
+	// PRIVATE FUNCTIONS:
+	//
+
+	private void shouldBeEqual(Func<long, SizeOf> constructor, Func<SizeOf, Func<long>> callback) {
+		var size = fetchRandomSize();
+		var sizeOf = constructor(size);
+		var result = callback(sizeOf)();
+		Assert.That(result, Is.EqualTo(size));
+	}
+
+	private void shouldBeLessBy(long factor, Func<long, SizeOf> constructor, Func<SizeOf, Func<long>> callback) {
+		var size = fetchRandomSize();
+		var sizeOf = constructor(size * factor);
+		var result = callback(sizeOf)();
+		Assert.That(result, Is.EqualTo(size));
+	}
+
+	private void shouldBeGreaterBy(long factor, Func<long, SizeOf> constructor, Func<SizeOf, Func<long>> callback) {
+		var size = fetchRandomSize();
+		var sizeOf = constructor(size);
+		var result = callback(sizeOf)();
+		Assert.That(result, Is.EqualTo(size * factor));
 	}
 }

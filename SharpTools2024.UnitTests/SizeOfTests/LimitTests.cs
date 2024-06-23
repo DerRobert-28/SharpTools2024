@@ -3,198 +3,88 @@
 using SharpTools2024;
 using SharpTools2024.UnitTests.Helpers;
 
-public class LimitTests : SizeOfHelper {
+public class LimitTests: SizeOfHelper {
 
 	[Test]
-	public void BitSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bits(size);
-		var result = sizeOf.inBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-	}
+	public void BitSizeShouldBeExact()
+		=> shouldBeExactFor(SizeOf.Bits, size => size.inBits);
 
 	[Test]
-	public void ByteSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.Bytes(size);
-		var result = sizeOf.inBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-	}
+	public void ByteSizeShouldBeExact()
+		=> shouldBeExactFor(SizeOf.Bytes, size => size.inBytes);
 
 	[Test]
 	public void KiloBitSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.KBits(size);
-		var result = sizeOf.inKBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inKiloBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.KiloBits(size);
-		result = sizeOf.inKBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inKiloBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
+		shouldBeExactFor(SizeOf.KBits, size => size.inKBits);
+		shouldBeExactFor(SizeOf.KBits, size => size.inKiloBits);
+		shouldBeExactFor(SizeOf.KiloBits, size => size.inKBits);
+		shouldBeExactFor(SizeOf.KiloBits, size => size.inKiloBits);
 	}
 
 	[Test]
 	public void KiloByteSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.KBytes(size);
-		var result = sizeOf.inKBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inKiloBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.KiloBytes(size);
-		result = sizeOf.inKBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inKiloBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
+		shouldBeExactFor(SizeOf.KBytes, size => size.inKBytes);
+		shouldBeExactFor(SizeOf.KBytes, size => size.inKiloBytes);
+		shouldBeExactFor(SizeOf.KiloBytes, size => size.inKBytes);
+		shouldBeExactFor(SizeOf.KiloBytes, size => size.inKiloBytes);
 	}
 
 	[Test]
 	public void MegaBitSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.MBits(size);
-		var result = sizeOf.inMBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inMegaBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.MegaBits(size);
-		result = sizeOf.inMBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inMegaBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
+		shouldBeExactFor(SizeOf.MBits, size => size.inMBits);
+		shouldBeExactFor(SizeOf.MBits, size => size.inMegaBits);
+		shouldBeExactFor(SizeOf.MegaBits, size => size.inMBits);
+		shouldBeExactFor(SizeOf.MegaBits, size => size.inMegaBits);
 	}
 
 	[Test]
 	public void MegaByteSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.MBytes(size);
-		var result = sizeOf.inMBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inMegaBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.MegaBytes(size);
-		result = sizeOf.inMBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inMegaBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
+		shouldBeExactFor(SizeOf.MBytes, size => size.inMBytes);
+		shouldBeExactFor(SizeOf.MBytes, size => size.inMegaBytes);
+		shouldBeExactFor(SizeOf.MegaBytes, size => size.inMBytes);
+		shouldBeExactFor(SizeOf.MegaBytes, size => size.inMegaBytes);
 	}
 
 	[Test]
 	public void GigaBitSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.GBits(size);
-		var result = sizeOf.inGBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inGigaBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.GigaBits(size);
-		result = sizeOf.inGBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inGigaBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
+		shouldBeExactFor(SizeOf.GBits, size => size.inGBits);
+		shouldBeExactFor(SizeOf.GBits, size => size.inGigaBits);
+		shouldBeExactFor(SizeOf.GigaBits, size => size.inGBits);
+		shouldBeExactFor(SizeOf.GigaBits, size => size.inGigaBits);
 	}
 
 	[Test]
 	public void GigaByteSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.GBytes(size);
-		var result = sizeOf.inGBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inGigaBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.GigaBytes(size);
-		result = sizeOf.inGBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inGigaBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
+		shouldBeExactFor(SizeOf.GBytes, size => size.inGBytes);
+		shouldBeExactFor(SizeOf.GBytes, size => size.inGigaBytes);
+		shouldBeExactFor(SizeOf.GigaBytes, size => size.inGBytes);
+		shouldBeExactFor(SizeOf.GigaBytes, size => size.inGigaBytes);
 	}
 
 	[Test]
 	public void TeraBitSizeShouldBeExact() {
-		var size = fetchRandomSize();
-		var sizeOf = SizeOf.TBits(size);
-		var result = sizeOf.inTBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inTeraBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.TeraBits(size);
-		result = sizeOf.inTBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inTeraBits();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
+		shouldBeExactFor(SizeOf.TBits, size => size.inTBits);
+		shouldBeExactFor(SizeOf.TBits, size => size.inTeraBits);
+		shouldBeExactFor(SizeOf.TeraBits, size => size.inTBits);
+		shouldBeExactFor(SizeOf.TeraBits, size => size.inTeraBits);
 	}
 
 	[Test]
 	public void TeraByteSizeShouldBeExact() {
+		shouldBeExactFor(SizeOf.TBytes, size => size.inTBytes);
+		shouldBeExactFor(SizeOf.TBytes, size => size.inTeraBytes);
+		shouldBeExactFor(SizeOf.TeraBytes, size => size.inTBytes);
+		shouldBeExactFor(SizeOf.TeraBytes, size => size.inTeraBytes);
+	}
+
+	//
+	// PRIVATE FUNCTIONS:
+	//
+
+	private void shouldBeExactFor(Func<long, SizeOf> constructor, Func<SizeOf, Func<long>> callback) {
 		var size = fetchRandomSize();
-		var sizeOf = SizeOf.TBytes(size);
-		var result = sizeOf.inTBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inTeraBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		sizeOf = SizeOf.TeraBytes(size);
-		result = sizeOf.inTBytes();
-		Assert.That(result, Is.Not.EqualTo(size - 1));
-		Assert.That(result, Is.Not.EqualTo(size + 1));
-		//
-		result = sizeOf.inGigaBytes();
+		var sizeOf = constructor(size);
+		var result = callback(sizeOf)();
 		Assert.That(result, Is.Not.EqualTo(size - 1));
 		Assert.That(result, Is.Not.EqualTo(size + 1));
 	}
