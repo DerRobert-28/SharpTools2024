@@ -1,6 +1,6 @@
 ﻿namespace SharpTools2024.UnitTests.Helpers;
 
-public abstract class SizeOfHelper {
+public class SizeOfHelper {
 	protected const long
 		BITS_PER_BYTE = 8,
 		BYTES_PER_KBIT = 128,
@@ -24,7 +24,9 @@ public abstract class SizeOfHelper {
 			sizes[0] = fetchRandomSize();
 			sizes[1] = fetchRandomSize();
 		}
-		while (sizes[0] == sizes[1]);
+		while(sizes[0] == sizes[1]);
 		return sizes;
 	}
+
+	protected SizeOfHelper() {}
 }

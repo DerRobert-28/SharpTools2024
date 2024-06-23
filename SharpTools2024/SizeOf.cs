@@ -89,6 +89,6 @@ public sealed class SizeOf {
 		return size * factor;
 	}
 	
-	private SizeOf(long size) => internalSize = multiply(size, 1);
-	private SizeOf(long size, long factor) => internalSize = multiply(size, factor);
+	private SizeOf(long size, long factor = 1)
+		=> internalSize = multiply(size, factor);
 }
