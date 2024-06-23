@@ -12,7 +12,7 @@ public class SizeOfHelper {
 	protected readonly Random RandomSize = new();
 
 	protected int fetchRandomSize() {
-		while (true) {
+		while(true) {
 			var size = RandomSize.Next() & 127;
 			if (size != 0) return size;
 		}
