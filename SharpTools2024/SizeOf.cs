@@ -2,8 +2,7 @@
 
 using SharpTools2024.Exceptions;
 
-public sealed class SizeOf
-{
+public sealed class SizeOf {
 	private const long
 		ONE = 1,
 		EIGHT = 8,
@@ -70,20 +69,17 @@ public sealed class SizeOf
 	public long inTBytes() => divide(inBits(), EIGHT_TRILLION);
 	public long inTeraBytes() => inTBytes();
 
-	private static void assume(bool condition, string elseMessage)
-	{
+	private static void assume(bool condition, string elseMessage) {
 		if(condition) throw new SizeOfException(elseMessage);
 	}
 
-	private static long divide(long size, long factor)
-	{
+	private static long divide(long size, long factor) {
 		assume(size < 0, "Size must not be to negative.");
 		assume(factor < 0, "Factor must not be to negative.");
 		return size / factor;
 	}
 
-	private static long multiply(long size, long factor)
-	{
+	private static long multiply(long size, long factor) {
 		assume(size < 0, "Size must not be to negative.");
 		assume(factor < 0, "Factor must not be to negative.");
 		var maxSize = long.MaxValue / factor;
@@ -93,6 +89,6 @@ public sealed class SizeOf
 		return size * factor;
 	}
 	
-	private SizeOf(long size) => internalSize = multiply(size, 1);
-	private SizeOf(long size, long factor) => internalSize = multiply(size, factor);
+	private SizeOf(long size, long factor = 1)
+		=> internalSize = multiply(size, factor);
 }

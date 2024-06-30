@@ -1,6 +1,6 @@
 ﻿namespace SharpTools2024.Exceptions;
 
-internal class SizeOfException: Exception
-{
-	public SizeOfException(string message): base(message) {}
+public class SizeOfException: Exception {
+	public SizeOfException(string message):
+		base(message) {}
 }
